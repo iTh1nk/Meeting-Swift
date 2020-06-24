@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var meetings: [Meeting] = []
+    
     var body: some View {
         NavigationView {
-            List(0..<6) { i in
-                HStack {
-                    Spacer()
-                    VStack {
-                        Text("Meeting \(i+1)")
+            List {
+                ForEach(meetings) { meeting in
+                    HStack {
+                        Text("\(meeting.title)")
+                            .font(.headline)
+                        Spacer()
+                        Text("\(meeting.timeStart)")
+                            .font(.caption)
                     }
-                    Spacer()
                 }
             }
             .navigationTitle("All Meetings")
@@ -26,6 +31,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(meetings: testData)
     }
 }
