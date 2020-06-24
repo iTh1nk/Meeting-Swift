@@ -9,7 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!").padding()
+        NavigationView {
+            List(0..<6) { i in
+                HStack {
+                    Spacer()
+                    VStack {
+                        Text("Meeting \(i+1)")
+                    }
+                    Spacer()
+                }
+            }
+            .navigationTitle("All Meetings")
+        }
     }
 }
 
