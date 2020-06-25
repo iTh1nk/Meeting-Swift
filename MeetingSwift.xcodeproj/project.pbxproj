@@ -14,6 +14,7 @@
 		3FC7C56124A2F10700437012 /* MeetingSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7C56024A2F10700437012 /* MeetingSwiftTests.swift */; };
 		3FC7C56C24A2F10700437012 /* MeetingSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7C56B24A2F10700437012 /* MeetingSwiftUITests.swift */; };
 		3FC7C57A24A40A1C00437012 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7C57924A40A1C00437012 /* Meeting.swift */; };
+		3FC7C57E24A42DC600437012 /* MeetingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7C57D24A42DC600437012 /* MeetingDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		3FC7C56B24A2F10700437012 /* MeetingSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingSwiftUITests.swift; sourceTree = "<group>"; };
 		3FC7C56D24A2F10700437012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FC7C57924A40A1C00437012 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		3FC7C57D24A42DC600437012 /* MeetingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +99,10 @@
 		3FC7C54D24A2F10500437012 /* MeetingSwift */ = {
 			isa = PBXGroup;
 			children = (
+				3FC7C57924A40A1C00437012 /* Meeting.swift */,
 				3FC7C54E24A2F10500437012 /* MeetingSwiftApp.swift */,
 				3FC7C55024A2F10500437012 /* ContentView.swift */,
-				3FC7C57924A40A1C00437012 /* Meeting.swift */,
+				3FC7C57D24A42DC600437012 /* MeetingDetails.swift */,
 				3FC7C55224A2F10700437012 /* Assets.xcassets */,
 				3FC7C55724A2F10700437012 /* Info.plist */,
 				3FC7C55424A2F10700437012 /* Preview Content */,
@@ -264,6 +267,7 @@
 			files = (
 				3FC7C55124A2F10500437012 /* ContentView.swift in Sources */,
 				3FC7C57A24A40A1C00437012 /* Meeting.swift in Sources */,
+				3FC7C57E24A42DC600437012 /* MeetingDetails.swift in Sources */,
 				3FC7C54F24A2F10500437012 /* MeetingSwiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

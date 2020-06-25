@@ -15,15 +15,24 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(meetings) { meeting in
-                    HStack {
-                        Text("\(meeting.title)")
-                            .font(.headline)
-                        Spacer()
-                        Text("\(meeting.timeStart)")
-                            .font(.caption)
+                    NavigationLink(destination: MeetingDetails(meetings: meeting)) {
+                        HStack {
+                            Image("\(meeting.avatar)")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                            Text("\(meeting.title)")
+                                .font(.headline)
+                            Text("(\(meeting.timeStart))")
+                                .font(.caption2)
+                            Spacer()
+                            Text("\(meeting.location)")
+                                .font(.caption)
+                        }
+                        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 5)
                     }
                 }
             }
+            .padding(.top, 20)
             .navigationTitle("All Meetings")
         }
     }
