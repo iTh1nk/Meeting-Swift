@@ -13,7 +13,7 @@ struct MeetingSwiftApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(container: container)
+            ContentView(container: testContainer)
         }
     }
 }

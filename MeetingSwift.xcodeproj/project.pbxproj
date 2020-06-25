@@ -17,6 +17,7 @@
 		3FC7C57E24A42DC600437012 /* MeetingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7C57D24A42DC600437012 /* MeetingDetails.swift */; };
 		3FC7C58024A43C8700437012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC7C57F24A43C8700437012 /* LaunchScreen.storyboard */; };
 		3FC7C58824A539E700437012 /* MeetingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7C58724A539E700437012 /* MeetingContainer.swift */; };
+		3FC7C58A24A55B2F00437012 /* CreateMeeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7C58924A55B2F00437012 /* CreateMeeting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		3FC7C57D24A42DC600437012 /* MeetingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetails.swift; sourceTree = "<group>"; };
 		3FC7C57F24A43C8700437012 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FC7C58724A539E700437012 /* MeetingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingContainer.swift; sourceTree = "<group>"; };
+		3FC7C58924A55B2F00437012 /* CreateMeeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeeting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +111,8 @@
 				3FC7C57F24A43C8700437012 /* LaunchScreen.storyboard */,
 				3FC7C54E24A2F10500437012 /* MeetingSwiftApp.swift */,
 				3FC7C55024A2F10500437012 /* ContentView.swift */,
-				3FC7C57D24A42DC600437012 /* MeetingDetails.swift */,
 				3FC7C58724A539E700437012 /* MeetingContainer.swift */,
+				3FC7C57D24A42DC600437012 /* MeetingDetails.swift */,
 				3FC7C57924A40A1C00437012 /* Meeting.swift */,
 				3FC7C55224A2F10700437012 /* Assets.xcassets */,
 				3FC7C55724A2F10700437012 /* Info.plist */,
@@ -155,6 +157,7 @@
 		3FC7C58524A5391000437012 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3FC7C58924A55B2F00437012 /* CreateMeeting.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FC7C55124A2F10500437012 /* ContentView.swift in Sources */,
+				3FC7C58A24A55B2F00437012 /* CreateMeeting.swift in Sources */,
 				3FC7C57A24A40A1C00437012 /* Meeting.swift in Sources */,
 				3FC7C58824A539E700437012 /* MeetingContainer.swift in Sources */,
 				3FC7C57E24A42DC600437012 /* MeetingDetails.swift in Sources */,

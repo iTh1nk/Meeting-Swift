@@ -14,6 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            //Tab 1
             NavigationView {
                 List {
                     HStack {
@@ -25,12 +26,21 @@ struct ContentView: View {
                                 Image(systemName: "plus.circle.fill")
                                 Text("Add")
                             }
-                        }.sheet(isPresented: $show) {
-                            Text("Add new meeting here")
+                        }
+                        .sheet(isPresented: $show) {
+//                            Button("Add", action: newMeeting)
+                            CreateMeeting(container: testContainer)
+                        }
+                        Spacer()
+                        HStack {
+                            Image(systemName: "pencil")
+                            #if os(iOS)
+                            EditButton()
+                            #endif
                         }
                         Spacer()
                     }
-                    ForEach(meetings) { meeting in
+                    ForEach(container.meetings) { meeting in
                         NavigationLink(destination: MeetingDetails(meetings: meeting)) {
                             HStack {
                                 Image("\(meeting.avatar)")
@@ -44,18 +54,25 @@ struct ContentView: View {
                                 Text("\(meeting.location)")
                                     .font(.caption)
                             }
-                            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 5)
+                            .padding(.all, 5)
                         }
                     }
+                    .onMove(perform: moveMeetings)
+                    .onDelete(perform: removeMeetings)
                 }
                 .padding(.top, 20)
-                .navigationTitle("All Meetings")
+                .navigationBarTitle("All Meetings")
+                .toolbar {
+                    #if os(iOS)
+                    EditButton()
+                    #endif
+                }
             }
             .tabItem {
                 Image(systemName: "list.bullet")
                 Text("Meetings")
             }
-            
+            //Tab 2:
             VStack {
                 VideoPlayer(player: AVPlayer(url: URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4")!))
             }
@@ -65,11 +82,28 @@ struct ContentView: View {
             }
         }
     }
+    
+    func newMeeting() {
+        withAnimation {
+            container.meetings.append(Meeting(title: "Appended", timeStart: "07-01-2020", timeEnd: "07-02-2020", location: "Office 102", hosts: "Mac", attendees: "Mac, Wendy", howEmerge: 5, avatar: "meeting1"))
+        }
+    }
+    func moveMeetings(from: IndexSet, to: Int) {
+        withAnimation {
+            container.meetings.move(fromOffsets: from, toOffset: to)
+        }
+    }
+    func removeMeetings(offsets: IndexSet) {
+        withAnimation {
+            container.meetings.remove(atOffsets: offsets)
+        }
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(meetings: testData)
+        ContentView(container: testContainer)
             .preferredColorScheme(.dark)
     }
 }
