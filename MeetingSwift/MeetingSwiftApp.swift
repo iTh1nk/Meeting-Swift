@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct MeetingSwiftApp: App {
+    @StateObject private var container = MeetingContainer()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView(meetings: testData)
+            ContentView(container: container)
         }
     }
 }
