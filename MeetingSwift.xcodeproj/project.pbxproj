@@ -103,9 +103,9 @@
 			children = (
 				3FC7C57F24A43C8700437012 /* LaunchScreen.storyboard */,
 				3FC7C54E24A2F10500437012 /* MeetingSwiftApp.swift */,
-				3FC7C57924A40A1C00437012 /* Meeting.swift */,
 				3FC7C55024A2F10500437012 /* ContentView.swift */,
 				3FC7C57D24A42DC600437012 /* MeetingDetails.swift */,
+				3FC7C57924A40A1C00437012 /* Meeting.swift */,
 				3FC7C55224A2F10700437012 /* Assets.xcassets */,
 				3FC7C55724A2F10700437012 /* Info.plist */,
 				3FC7C55424A2F10700437012 /* Preview Content */,
