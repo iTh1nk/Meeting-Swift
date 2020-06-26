@@ -24,3 +24,7 @@ let testData = [
     Meeting(title: "RoundTwo", timeStart: "07-05-2020", timeEnd: "07-07-2020", location: "Office 101", hosts: "Wendy", attendees: "April, Wendy", howEmerge: 3, avatar: "meeting2"),
     Meeting(title: "EndGame", timeStart: "07-09-2020", timeEnd: "07-10-2020", location: "Office 203", hosts: "April", attendees: "Mac, Wendy, April", howEmerge: 2, avatar: "meeting3"),
 ]
+
+class SpState: ObservableObject {
+    @Published var modalAddShow = false
+}

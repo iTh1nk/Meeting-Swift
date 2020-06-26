@@ -12,6 +12,9 @@ struct CreateMeeting: View {
     @State private var alertAdd: Bool = false
     @ObservedObject var container: MeetingContainer
     
+    @ObservedObject var spState = SpState()
+    @State private var testModal: Bool = false
+    
     @State var title: String = ""
     @State var timeStart: String = ""
     @State var timeEnd: String = ""
@@ -42,16 +45,15 @@ struct CreateMeeting: View {
                         }
                     }
                 }
+                Section(header: Text("Hosts")) {
+                    TextField("Names of Hosts", text: $hosts)
+                }
+                Section(header: Text("Attendees")) {
+                    TextField("Names of Attendees", text: $attendees)
+                }
                 Section {
                     Button(action: {
-                        title = ""
-                        timeStart = ""
-                        timeEnd = ""
-                        location = ""
-                        hosts = ""
-                        attendees = ""
-                        howEmergency = 1
-                        avatar = "meeting"
+                        resetField()
                     }) {
                         Text("Reset All Fields")
                     }
@@ -60,11 +62,12 @@ struct CreateMeeting: View {
                     Button(action: {
                         alertAdd.toggle()
                         newMeeting()
+                        resetField()
                     }) {
                         Text("Add New Meeting")
                     }
                     .alert(isPresented: $alertAdd) {
-                        Alert(title: Text("New Meeting Added"), message: Text("Check all meetings on home page."), dismissButton: .default(Text("Dissmis")))
+                        Alert(title: Text("Meeting Added"), message: Text("Check all meetings on home page."), dismissButton: .default(Text("Dissmis")))
                     }
                 }
             }
@@ -75,8 +78,18 @@ struct CreateMeeting: View {
     
     func newMeeting() {
         withAnimation {
-            container.meetings.append(Meeting(title: title, timeStart: timeStart, timeEnd: timeEnd, location: location, hosts: hosts, attendees: attendees, howEmerge: 5, avatar: "meeting4"))
+            container.meetings.append(Meeting(title: title, timeStart: timeStart, timeEnd: timeEnd, location: locationOptions[locationIndex], hosts: hosts, attendees: attendees, howEmerge: 5, avatar: "meeting4"))
         }
+    }
+    func resetField() {
+        title = ""
+        timeStart = ""
+        timeEnd = ""
+        location = ""
+        hosts = ""
+        attendees = ""
+        howEmergency = 1
+        avatar = "meeting"
     }
     
 }
@@ -84,6 +97,8 @@ struct CreateMeeting: View {
 struct CreateMeeting_Previews: PreviewProvider {
     static var previews: some View {
         CreateMeeting(container: testContainer)
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+        
+        
     }
 }

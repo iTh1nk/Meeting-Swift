@@ -10,7 +10,9 @@ import AVKit
 
 struct ContentView: View {
     @ObservedObject var container: MeetingContainer
-    @State private var show: Bool = false
+//    @State private var show: Bool = false
+    
+    @ObservedObject var spState = SpState()
     
     var body: some View {
         TabView {
@@ -20,23 +22,15 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            show.toggle()
+                            spState.modalAddShow.toggle()
                         }) {
                             HStack {
                                 Image(systemName: "plus.circle.fill")
                                 Text("Add")
                             }
                         }
-                        .sheet(isPresented: $show) {
-//                            Button("Add", action: newMeeting)
+                        .sheet(isPresented: $spState.modalAddShow) {
                             CreateMeeting(container: testContainer)
-                        }
-                        Spacer()
-                        HStack {
-                            Image(systemName: "pencil")
-                            #if os(iOS)
-                            EditButton()
-                            #endif
                         }
                         Spacer()
                     }
@@ -48,10 +42,8 @@ struct ContentView: View {
                                     .frame(width: 50, height: 50)
                                 Text("\(meeting.title)")
                                     .font(.headline)
-                                Text("(\(meeting.timeStart))")
-                                    .font(.caption2)
                                 Spacer()
-                                Text("\(meeting.location)")
+                                Text("\(meeting.timeStart)")
                                     .font(.caption)
                             }
                             .padding(.all, 5)
@@ -64,6 +56,7 @@ struct ContentView: View {
                 .navigationBarTitle("All Meetings")
                 .toolbar {
                     #if os(iOS)
+                    Image(systemName: "pencil")
                     EditButton()
                     #endif
                 }
@@ -104,6 +97,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(container: testContainer)
-            .preferredColorScheme(.dark)
+            
     }
 }

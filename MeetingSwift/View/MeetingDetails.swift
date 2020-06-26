@@ -69,9 +69,6 @@ struct MeetingDetails: View {
                 }
                 .padding(.leading, 20)
                 .navigationTitle(Text(meetings.title))
-                .toolbar {
-                    EditButton()
-                }
                 Spacer()
             }
             .frame(maxWidth: .infinity)
